@@ -1,23 +1,42 @@
-# 🤖 Labs-Apprentice Bot
+# 🤖 Utvikler Bot – SvelteKit Chatbot
 
-En læringsfokusert chatbot for IT-Utviklerfaget, bygget med OpenAI og SvelteKit.
+En moderne chatbot bygget med SvelteKit og OpenAI, med støtte for markdown-formaterte svar, kodeeksempler, overskrifter og avsnitt.
+
+![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ---
 
 ## 📘 Innholdsfortegnelse
 
-- [Om prosjektet](#-om-prosjektet)
-- [Prosjektstruktur](#-prosjektstruktur)
-- [Biblioteker og begrunnelse](#️-biblioteker-og-begrunnelse)
-- [Sikkerhet og personvern](#-sikkerhet-og-personvern)
-- [Installasjon og oppsett](#-installasjon-og-oppsett)
-- [Lisens](#-lisens)
+- [🎯 Funksjoner](#-funksjoner)
+- [📖 Om prosjektet](#-om-prosjektet)
+- [🏗️ Prosjektstruktur](#️-prosjektstruktur)
+- [⚙️ Biblioteker og begrunnelse](#️-biblioteker-og-begrunnelse)
+- [🧰 Installasjon og oppsett](#-installasjon-og-oppsett)
+- [🚀 Bruk](#-bruk)
+- [🔒 Sikkerhet og personvern](#-sikkerhet-og-personvern)
+- [🤝 Bidrag](#-bidrag)
+- [📄 Lisens](#-lisens)
+
+---
+
+## 🎯 Funksjoner
+
+- ✨ **Moderne chatgrensesnitt** med Svelte
+- 📝 **Markdown-formaterte svar** med overskrifter, avsnitt og lister
+- 💻 **Kodeblokker** med syntax highlighting
+- ⚡ **Streaming av bot-svar** for bedre brukeropplevelse
+- 🔗 **OpenAI-integrasjon** med Responses API
+- 🎨 **Responsivt design** med gradient-bakgrunner
+- 🔄 **Samtalekontekst** som bevares gjennom samtalen
 
 ---
 
 ## 📖 Om prosjektet
 
-Labs-Apprentice Bot er en avansert chatbot bygget med OpenAI sitt Responses API og SvelteKit. Den er trent på kompetanseplanen for IT-Utviklerfaget og programmert for å gi pedagogisk og faglig korrekte svar. Målet er å tilby en trygg og læringsfokusert digital assistent for elever og lærlinger.
+Utvikler Bot er en avansert chatbot bygget med OpenAI sitt Responses API og SvelteKit. Botten gir strukturerte, markdown-formaterte svar som gjør det enkelt å lese kode, dokumentasjon og forklaringer. Prosjektet demonstrerer moderne web-utvikling med focus på brukeropplevelse og læring.
 
 ---
 
