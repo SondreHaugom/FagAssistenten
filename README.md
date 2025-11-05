@@ -17,3 +17,13 @@ En læringsfokusert chatbot for IT-Utviklerfaget, bygget med OpenAI og SvelteKit
 - [Lisens](#-lisens)
 
 ---
+
+# Prosjekt struktur
+Prosjektet er bygget med Svelte og Vite, og har følgende hovedmapper og filer:
+•	src – Inneholder all kildekode for Svelte-applikasjonen.
+o	app.html – Hoved-HTML-fil for Svelte.
+o	lib/ – Egen mappe for delte JavaScript-moduler og assets.
+o	routes/ – Sider og API-endepunkter, f.eks. +page.svelte for chat og +server.js for backend.
+•	static – Statisk innhold som robots.txt.
+•	jsconfig.json, package.json, README.md, svelte.config.js, vite.config.js – Konfigurasjonsfiler for prosjektet og verktøyene.
+Strukturen gir god separasjon mellom frontend, backend og konfigurasjon, og gjør det enkelt å utvide med flere funksjoner
