@@ -7,7 +7,7 @@ import { marked } from 'marked';
 let chatbox, userInput, sendButton;
 
 // funksjon for å streame tekst
-const streamText = (element, text, speed = 5) => {
+const streamText = (element, text, speed = 2) => {
     // definerer en indeks for å holde styr på posisjonen i teksten
     let index = 0;
     // tømmer innholdet i elementet før streaming
@@ -177,7 +177,7 @@ onMount(() => {
 
 <header>
     <h1>
-        Min BOT
+        Lærling Bot
     </h1>
 </header>
 <main>
@@ -327,7 +327,6 @@ onMount(() => {
         margin: 1em 0;
         font-size: 2em;
     }
-    
     .chatBox {
         height: 600px;
         width: 80%;
@@ -339,8 +338,26 @@ onMount(() => {
         color: white;
         list-style: none;
         padding: 20px;
-  
         border-radius: 10px;
+    }
+    /* Webkit (Chrome, Edge, Safari): */
+    .chatBox::-webkit-scrollbar {
+        width: 10px;
+        background: #2c2c2c;
+        border-radius: 10px;
+    }
+    .chatBox::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 10px;
+        min-height: 40px;
+    }
+    .chatBox::-webkit-scrollbar-thumb:hover {
+        background: #666;
+    }
+    /* Firefox: */
+    .chatBox {
+        scrollbar-width: thin;
+        scrollbar-color: #444 #2c2c2c;
     }
     
     .input_container {
