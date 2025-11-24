@@ -66,24 +66,17 @@ const createChatBubble = (message, className, isStreaming = false) => {
     let chatli = document.createElement('li');
     chatli.classList.add(className);
 
-    // Bruk div for markdown
-    let content = `<div class="${className === 'chat_incoming' ? 'bot_message' : 'user_message'}"></div>`;
+    let content = '';
+    if (className === 'chat_incoming') {
+        content = `<div class="bot_message">${marked(message)}</div>`;
+    } else {
+        content = `<div class="user_message">${marked(message)}</div>`;
+    }
+
+
     chatli.innerHTML = content;
     chatbox.appendChild(chatli);
     chatbox.scrollTop = chatbox.scrollHeight;
-
-    const div = chatli.querySelector(className === 'chat_incoming' ? '.bot_message' : '.user_message');
-    
-    if (isStreaming && className === 'chat_incoming') {
-        // For streaming: start med tom div og stream HTML-innhold
-        div.innerHTML = '';
-        streamMarkdown(div, message);
-    } else {
-        // For øyeblikkelig visning: sett markdown-formatert tekst direkte
-        div.innerHTML = marked(message);
-    }
-    
-    return chatli;
 };
 
 // funksjon for å sende melding
