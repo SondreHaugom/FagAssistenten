@@ -336,7 +336,7 @@ onMount(() => {
         color: white;
         text-align: center;
         margin: 1em 0;
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .chatBox {
         height: 600px;
@@ -442,6 +442,7 @@ onMount(() => {
         padding: 16px 20px;
         border-radius: 18px 18px 18px 4px;
         max-width: 75%;
+        font-size: 20px;
         line-height: 1.5;
         word-wrap: break-word;
     }
@@ -450,6 +451,7 @@ onMount(() => {
         background: linear-gradient(135deg, #3d3d3d );
         margin: 0;
         padding: 16px 20px;
+        font-size: 20px;
         border-radius: 18px 18px 4px 18px;
         max-width: 75%;
         line-height: 1.5;
