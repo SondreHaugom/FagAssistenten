@@ -315,12 +315,21 @@ onMount(() => {
         font-style: italic;
     }
 
+
     /* Base styling */
     :global(body) {
         margin: 0;
         padding: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #353434;
+	    height: 100%;
+ 	    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAA/CAYAAABKIS5EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHMSURBVHhe7dvLjqMwEIXh0y2S939S5EAwN1M1i4SeHi9adYw0i5nzLbFQnN8oixL5GIbBIWGf9QX5mYKRwsGmacI8z/XlEHfHOI4opdRLIcdxYBxHuLf9eszzjGma6ssh5963bQOYYFe1flm8771y/1XfP/tDP/qcv/aE/SsUjKRgJAUjKRhJwUgKRlIwkoKRFIykYCQFIykYKRTM3fF4PDCOY70U4u7o+x77vtdLIaUU9H3fPOJ5Pp9IKTXdf+59WRaAGe+cw7+u6+qlkG3b0HUdPj9DZ/QHM0MpBff7vV4KKaXA3XG73eqlkO97DweTF/64/3MKRlIwkoKRFIykYCQFIykYScFICkZSMJKCkcLBzAxmVl8OM7Om8QreI5arn331/nPvoWDnO1Kt71iZGVJKze+HlVKQUmr+0jlnDMPQdGDujpQS1nUFmHmYvISeMPlNwUgKRlIwkoKRFIykYCQFIykYScFICkZSMJKCkcLBlmX5GnGw3B05ZxzHUS+FmBlyzk3jGQBY1/XSXxdzzl+jqXCwbdua3+/Ce9Ot8ywzaz4svOdp+75fCn4etuZhpPATJi8KRlIwkoKRFIykYCQFIykYScFICkb6BTA8Gc4GWfA4AAAAAElFTkSuQmCC');
+	    background-color: #353434;
+        background-image:
+        radial-gradient(circle, #707575 0.3px, transparent 1px),
+        radial-gradient(circle, #999999 0.3px, transparent 1px);
+        background-size: 32px 32px;
+        background-position: 0 0, 16px 16px;
+	    height: 100%;
+	    max-height: 100%;
     }
     
     h1 {
@@ -331,7 +340,7 @@ onMount(() => {
     }
     .chatBox {
         height: 600px;
-        width: 80%;
+        width: 65%;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -340,7 +349,7 @@ onMount(() => {
         color: white;
         list-style: none;
         padding: 20px;
-        border-radius: 10px;
+        
     }
     /* Webkit (Chrome, Edge, Safari): */
     .chatBox::-webkit-scrollbar {
@@ -363,9 +372,9 @@ onMount(() => {
     }
     
     .input_container {
-        width: 80%;
-        height: 40px;
-        max-height: 40px;
+        width: 50%;
+        height: 60px;
+        max-height: 60px;
         margin: 20px auto;
         display: flex;
         gap: 10px;
@@ -375,16 +384,20 @@ onMount(() => {
         flex: 1;
         padding: 12px 16px;
         font-size: 16px;
-        border: 2px solid #3d3d3d;
+        border: 2px solid #323232;
         border-radius: 8px;
         background-color: #484848;
         color: white;
         transition: border-color 0.3s ease;
+        box-shadow:
+        0 2px 4px rgba(44, 44, 44, 0.25),
+        0 4px 10px rgba(44, 44, 44, 0.35);
+
+        
     }
     
     .user_input:focus {
         outline: none;
-        border-color: #484848;
     }
     
     .user_input::placeholder {
@@ -398,9 +411,13 @@ onMount(() => {
         color: white;
         border: none;
         border-radius: 8px;
+        border: 2px solid #323232;
         cursor: pointer;
         transition: background-color 0.3s ease;
         font-weight: 500;
+        box-shadow:
+        0 2px 4px rgba(44, 44, 44, 0.25),
+        0 4px 10px rgba(44, 44, 44, 0.35);
     }
     
     .snd_btn:hover {
