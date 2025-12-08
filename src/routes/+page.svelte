@@ -4,7 +4,7 @@ import { onMount } from 'svelte';
 import { marked } from 'marked';
 
 // deklarerer globale variabler
-let chatbox, userInput, sendButton;
+let chatbox, userInput, sendButton, resetButton;
 
 // funksjon for å streame tekst
 const streamText = (element, text, speed = 2) => {
@@ -157,6 +157,13 @@ onMount(() => {
     chatbox = document.querySelector('.chatBox');
     userInput = document.querySelector('.user_input');
     sendButton = document.querySelector('.snd_btn');
+    resetButton = document.querySelector('.rst-btn');
+
+    if (resetButton) {
+        resetButton.addEventListener('click', () => {
+            chatbox.innerHTML = '';
+        })
+    }
 
     // Legg til event-lyttere
     if (sendButton) {
@@ -172,30 +179,26 @@ onMount(() => {
             }
         });
     }
+
+    
 });
     </script>
 
 
 
 <header>
+    <div class="rst-btn_container">
+        <button class="rst-btn" type="button"><img src="/bilder/chat-notification_17178348.png" alt="Reset chat"></button>
+    </div>
     <h1>
         Lærling Bot
     </h1>
+    
 </header>
 <main>
 
     <ul class="chatBox">
         <li class="chat_incoming">
-            <div class="bot_message">
-                <h2>👋 Velkommen!</h2>
-                <p>Jeg er din hjelpsom assistent. Jeg kan gi deg <strong>strukturerte svar</strong> med:</p>
-                <ul>
-                    <li>📝 Overskrifter og avsnitt</li>
-                    <li>💻 Kodeeksempler med <code>syntax highlighting</code></li>
-                    <li>📋 Lister og formatering</li>
-                </ul>
-                <p><em>Spør meg gjerne om hva som helst!</em></p>
-            </div>
         </li>
     </ul>
     <div class="input_container">
@@ -337,9 +340,17 @@ onMount(() => {
         text-align: center;
         margin: 1em 0;
         font-size: 2.5em;
+        flex: 1;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        position: relative;
     }
     .chatBox {
-        height: 600px;
+        height: 500px;
         width: 65%;
         margin-left: auto;
         margin-right: auto;
@@ -456,5 +467,41 @@ onMount(() => {
         max-width: 75%;
         line-height: 1.5;
         word-wrap: break-word;
+    }
+    .rst-btn_container {
+        position: absolute;
+        left: 20px;
+        top: 35%;
+        transform: translateY(-50%);
+    }
+    .rst-btn {
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        border: none;
+        box-shadow:
+        0 2px 4px rgba(44, 44, 44, 0.25),
+        0 4px 10px rgba(44, 44, 44, 0.35);
+        background-color: #707575;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .rst-btn:hover {
+        background-color: #858585;
+    }
+    
+    .rst-btn img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+    .rst-btn img:hover {
+            border-color: #666;
+
     }
 </style>
