@@ -188,10 +188,10 @@ onMount(() => {
 
 <header>
     <div class="rst-btn_container">
-        <button class="rst-btn" type="button"><img src="/bilder/chat-notification_17178348.png" alt="Reset chat"></button>
+        <button class="rst-btn" title="Ny samtale" type="button"><img src="/bilder/chat-notification_17178348.png" alt="Reset chat"></button>
     </div>
     <h1>
-        Lærling Bot
+        FagAssistenten
     </h1>
     
 </header>
@@ -321,28 +321,67 @@ onMount(() => {
 
     /* Base styling */
     :global(body) {
-        margin: 0;
-        padding: 0;
-	    height: 100%;
- 	    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAA/CAYAAABKIS5EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHMSURBVHhe7dvLjqMwEIXh0y2S939S5EAwN1M1i4SeHi9adYw0i5nzLbFQnN8oixL5GIbBIWGf9QX5mYKRwsGmacI8z/XlEHfHOI4opdRLIcdxYBxHuLf9eszzjGma6ssh5963bQOYYFe1flm8771y/1XfP/tDP/qcv/aE/SsUjKRgJAUjKRhJwUgKRlIwkoKRFIykYCQFIykYKRTM3fF4PDCOY70U4u7o+x77vtdLIaUU9H3fPOJ5Pp9IKTXdf+59WRaAGe+cw7+u6+qlkG3b0HUdPj9DZ/QHM0MpBff7vV4KKaXA3XG73eqlkO97DweTF/64/3MKRlIwkoKRFIykYCQFIykYScFICkZSMJKCkcLBzAxmVl8OM7Om8QreI5arn331/nPvoWDnO1Kt71iZGVJKze+HlVKQUmr+0jlnDMPQdGDujpQS1nUFmHmYvISeMPlNwUgKRlIwkoKRFIykYCQFIykYScFICkZSMJKCkcLBlmX5GnGw3B05ZxzHUS+FmBlyzk3jGQBY1/XSXxdzzl+jqXCwbdua3+/Ce9Ot8ywzaz4svOdp+75fCn4etuZhpPATJi8KRlIwkoKRFIykYCQFIykYScFICkb6BTA8Gc4GWfA4AAAAAElFTkSuQmCC');
-	    background-color: #353434;
-        background-image:
-        radial-gradient(circle, #707575 0.3px, transparent 1px),
-        radial-gradient(circle, #999999 0.3px, transparent 1px);
-        background-size: 32px 32px;
-        background-position: 0 0, 16px 16px;
-	    height: 100%;
-	    max-height: 100%;
-    }
-    
-    h1 {
-        color: white;
-        text-align: center;
-        margin: 1em 0;
-        font-size: 2.5em;
-        flex: 1;
-    }
-    
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    background-color: #2f2f2f;
+
+    /* DYBDE-LAG – mye lysere, større spotlight */
+    background-image:
+
+        /* Soft ambient light */
+        radial-gradient(circle at 50% 35%, 
+            rgba(255, 255, 255, 0.15),
+            rgba(0, 0, 0, 0) 75%
+        ),
+
+        /* Lys vignette – trekker rommet utover i stedet for innover */
+        radial-gradient(circle at center,
+            rgba(179, 179, 179, 0.248),
+            rgba(0, 0, 0, 0) 70%
+        ),
+
+        /* Grid pattern (beholder ditt mønster) */
+        radial-gradient(circle, rgba(200, 200, 200, 0.22) 0.5px, transparent 1px),
+        radial-gradient(circle, rgba(200, 200, 200, 0.14) 0.5px, transparent 1px),
+
+        /* Noise – subtil, men gir rom */
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAABAfUpYAAAACXBIWXMAAAsSAAALEgHS3X78AAAAKUlEQVR4nO3PMQ0AIBAEwbn/zeaBB0LISwLt8XwPJW4kjJkpdzHWtYAAAAASUVORK5CYII=');
+
+    background-size:
+        100% 100%,    /* ambient */
+        100% 100%,    /* vignette */
+        32px 32px,    /* pattern 1 */
+        32px 32px,    /* pattern 2 */
+        200px 200px;  /* noise */
+
+    background-position:
+        center,
+        center,
+        0 0,
+        16px 16px,
+        0 0;
+
+    background-blend-mode:
+        overlay,
+        soft-light,
+        normal,
+        normal,
+        soft-light;
+
+    max-height: 100%;
+}
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin: 1em auto;
+    font-size: 2.5em;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
     header {
         display: flex;
         align-items: center;
@@ -447,8 +486,7 @@ onMount(() => {
         margin-bottom: 15px;
     }
     
-    :global(.bot_message) {
-    
+    :global(.bot_message) {    
         margin: 0;
         padding: 16px 20px;
         border-radius: 18px 18px 18px 4px;
@@ -459,7 +497,8 @@ onMount(() => {
     }
     
     :global(.user_message) {
-        background: linear-gradient(135deg, #3d3d3d );
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
         margin: 0;
         padding: 16px 20px;
         font-size: 20px;
