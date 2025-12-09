@@ -31,7 +31,7 @@ export async function POST(request) {
         
         // Genererer et svar ved å bruke OpenAI-klienten med fil-søk som verktøy
         const response = await client.responses.create({
-            model: "gpt-4.1",
+            model: "gpt-5.1",
             instructions: instructions,
             input: [
                 {
