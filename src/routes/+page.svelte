@@ -500,8 +500,7 @@ h1 {
     }
     
     :global(.user_message) {
-        backdrop-filter: blur(1px);
-        -webkit-backdrop-filter: blur(1px);
+        background: #484848;
         margin: 0;
         padding: 16px 20px;
         font-size: 20px;
