@@ -92,67 +92,55 @@ const createChatBubble = (message, className, isStreaming = false) => {
 
 // funksjon for å sende melding
 function sendMessage() {
-    // henter og trimmer brukerens input
-    const message = userInput.value.trim(); 
-    // sjekker om meldingen er tom
-    if (!message) return;
-    createChatBubble(message, 'chat_outgoing');
+    const user_message = userInput.value.trim();
+    if (user_message === '') return;
+    createChatBubble(user_message, 'chat_outgoing');
 
-    // Kall funksjon for bot-respons
-    generateResponse(message).then(botMessage => {
-        createChatBubble(botMessage, 'chat_incoming', true); // Aktiver streaming
+    selectedAgent(user_message).then((bot_response) => {
+        createChatBubble(bot_response, 'chat_incoming', true);
     });
-
-    // Tøm input-feltet etter sending
     userInput.value = '';
 }
 
-
-// funksjon for å generere bot-respons
-async function generateResponse(user_message) {
-    // Legg til "skriver..."-boblen
-    const typingIndex = chatbox.children.length;
-    createChatBubble('Skriver...', 'chat_incoming');
-    // gjør et API-kall til serveren
-    try {
-        const response = await fetch('/openai', {
-            method: 'POST', 
+const selectedAgent = async (user_message, typingIndex) => {
+    let response;
+    if (toggleMenu.value === 'openai') {
+        console.log('Valgt agent er openai');
+        response = await fetch('/openai', {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'content-type': 'application/json'
             },
-            // sender brukerens melding i body
-            body: JSON.stringify({ message: user_message })
-        }); 
-        // Fjern typing‑boblen
-        const typingNode = chatbox.children[typingIndex];
-        // Hvis den finnes, fjern den
-        if (typingNode) chatbox.removeChild(typingNode);
-
-        // håndterer feil i responsen
-        if (!response.ok) {
-            throw new Error('Nettverksrespons var ikke ok');
-        };
-        // henter JSON-payload fra responsen
+            body:JSON.stringify({ message: user_message, agent: 'openai'})          
+        });
         const payload = await response.json();
 
-
-        // Hent rå tekst fra payload
         const raw = payload.response ??
         // eller fallback til choices-strukturen
             payload.choices?.[0]?.message?.content ?? '';
 
-        // Returner HTML‑strengen direkt
         return raw || 'Beklager, jeg har ingen svar.';
-        // legger til en catch for feil
-    } catch (e) {
-        console.error('Chat fetch error →', e);
-        // På feil: fjern typing‑boblen (hvis den fortsatt finnes)
-        const typingNode = chatbox.children[typingIndex];
-        if (typingNode) chatbox.removeChild(typingNode);
-        return '<p>Beklager, noe gikk galt.</p>';
-    }
-}
 
+    } else if (toggleMenu.value === 'codeGeneration') {
+        console.log('Valgt agent er codeGeneration');
+        let response;
+        response = await fetch('/codeGeneration', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify({ message: user_message, agent: 'codeGeneration'})
+        });
+        const payload = await response.json();
+
+        const raw = payload.response ??
+        // eller fallback til choices-strukturen
+            payload.choices?.[0]?.message?.content ?? '';
+        
+        return raw || 'Beklager, jeg har ingen svar.';
+    }
+    
+}
 
 
 // onMount for å initialisere elementer og legge til event-lyttere
@@ -162,14 +150,6 @@ onMount(() => {
     sendButton = document.querySelector('.snd_btn');
     resetButton = document.querySelector('.rst-btn');
     toggleMenu = document.querySelector('.agent_btn');
-
-    if (toggleMenu) {
-        toggleMenu.addEventListener('change', () => {
-            const selectedAgent = toggleMenu.value;
-            console.log('Valgt agent:', selectedAgent);
-            // Her kan du legge til logikk for å bytte agent basert på valgt verdi
-        })
-    }
 
     if (resetButton) {
         resetButton.addEventListener('click', () => {
@@ -204,8 +184,8 @@ onMount(() => {
     </div>
     <div class="agenst_container">
         <select class="agent_btn" name="" id="">
-            <option value="">GPT-5.1</option>
-            <option value="">Code generation</option>
+            <option value="openai">GPT-5.1</option>
+            <option value="codeGeneration">Code generation</option>
         </select>
     </div>
     <h1>
