@@ -30,15 +30,18 @@ En moderne chatbot bygget med SvelteKit og OpenAI, med støtte for markdown-form
 - ✨ **Moderne chatgrensesnitt** med Svelte
 - 🤖 **Multi-agent system** med agent-selektor
   - **GPT-5.1** (OpenAI) - Generell AI-assistent
-  - **Code Generation** - Spesialist på kodeeksempler og programmering
+  - **Syntax Agent** - Spesialist på kodehjelp og syntax-støtte
+  - **Web Søk** - kan søke på nett og hente innformasjon derfra
 - 📝 **Markdown-formaterte svar** med overskrifter, avsnitt og lister
 - 💻 **Kodeblokker** med syntax highlighting
 - ⚡ **Streaming av bot-svar** for bedre brukeropplevelse
-- � **Loading-indikator** som viser "Genererer respons..."
-- 🎨 **Responsivt design** med gradient-bakgrunner
-- � **Modulær arkitektur** med separert agent-logikk
+- 🔄 **Loading-indikator** som viser "Genererer respons..."
+- 🎨 **Responsivt design** med gradient-bakgrunner og moderne styling
+- 🔧 **Modulær arkitektur** med separert agent-logikk
 - ⌨️ **Tastaturnavigasjon** (Enter for å sende, Shift+Enter for ny linje)
 - 🔄 **Nullstill chat** funksjonalitet
+- 📱 **Intuitive ikoner** (↑ for send, tooltip-støtte)
+- ♿ **Accessibility-forbedringer** med title-attributter
 
 ---
 
@@ -49,7 +52,7 @@ FagAssistenten er en avansert chatbot med multi-agent arkitektur bygget med Svel
 ### 🤖 Agent-system
 
 - **OpenAI Agent (GPT-5.1)**: Generell AI-assistent for diverse spørsmål og oppgaver
-- **Code Generation Agent**: Spesialist på kodeeksempler, programmering og teknisk dokumentasjon
+- **Syntax Agent**: Spesialist på kodehjelp, syntax-støtte og programmeringsassistanse
 - **Utvidbar arkitektur**: Enkelt å legge til nye agenter
 
 ---
@@ -164,17 +167,19 @@ npm run preview
 ### 🎯 Velge Agent
 1. **Bruk dropdown-menyen** øverst til venstre for å velge agent:
    - **GPT-5.1**: For generelle spørsmål og samtaler
-   - **Code Generation**: For koding og tekniske spørsmål
+   - **Syntax Agent**: For koding og syntax-spørsmål
 
 ### 💬 Chat-funksjoner
 1. **Skriv meldinger** i chat-grensesnittet
-2. **Tastatur shortcuts**:
+2. **Send meldinger**: Klikk på ↑-knappen eller bruk tastatur
+3. **Tastatur shortcuts**:
    - `Enter` - Send melding
    - `Shift + Enter` - Ny linje
-3. **Motta formaterte svar** med overskrifter, kodeblokker og lister  
-4. **Loading-indikator** viser "🤔 Genererer respons..." mens AI tenker
-5. **Streaming-effekt** viser svarene i sanntid
-6. **Nullstill chat** med knappen øverst til høyre
+4. **Motta formaterte svar** med overskrifter, kodeblokker og lister  
+5. **Loading-indikator** viser "Genererer respons..." mens AI tenker
+6. **Streaming-effekt** viser svarene i sanntid
+7. **Nullstill chat** med knappen øverst til høyre
+8. **Tooltip-hjelp**: Hover over knapper for å se funksjoner
 
 ### 🔄 Agent-switching
 - Skift agent når som helst under samtalen
