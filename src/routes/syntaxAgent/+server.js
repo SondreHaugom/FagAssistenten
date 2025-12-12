@@ -11,7 +11,7 @@ const vector_store_id = env.VECTOR_STORE_ID;
 // Initialiserer OpenAI-klienten
 
 // henter inn instruksjoner fra miljøvariabler
-const instructions = env.CODE_AGENT_INSTRUCTIONS;
+const instructions = env.SYNTAX_INSTRUCTIONS;
 
 const client = new OpenAI({
     apiKey: env.OPENAI_API_KEY
@@ -31,7 +31,7 @@ export async function POST({ request }) {
         
         // Genererer et svar ved å bruke OpenAI-klienten med fil-søk som verktøy
         const response = await client.responses.create({
-            model: "gpt-5",
+            model: "gpt-4.1",
             instructions: instructions,
             input: [
                 {

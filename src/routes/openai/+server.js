@@ -43,7 +43,11 @@ export async function POST(request) {
                 {
                     type: "file_search",
                     vector_store_ids: [vector_store_id]
+                },
+                {
+                    type: "web_search"
                 }
+
             ],
             previous_response_id: response_ID
         });

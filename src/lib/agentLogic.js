@@ -20,9 +20,9 @@ export const selectedAgent = async (user_message, agentType) => {
 
 
         
-    } else if (agentType === 'codeGeneration') {
-        console.log('Using Code Generation agent');
-        response = await fetch('/codeGeneration', {
+    } else if (agentType === 'syntaxAgent') {
+        console.log('Using Code syntaxAgent');
+        response = await fetch('/syntaxAgent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,6 +35,8 @@ export const selectedAgent = async (user_message, agentType) => {
         // eller fallback til choices-strukturen
             payload.choices?.[0]?.message?.content ?? '';
         return raw || 'Beklager, jeg har ingen svar.'; 
+    } else {
+        alert('Modell finnes ikke');
     }
 }
     

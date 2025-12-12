@@ -149,9 +149,9 @@ onMount(() => {
         <button class="rst-btn" title="Ny samtale" type="button"><img src="/bilder/chat-notification_17178348.png" alt="Reset chat"></button>
     </div>
     <div class="agenst_container">
-        <select class="agent_btn" name="" id="">
-            <option value="openai">GPT-5.1</option>
-            <option value="codeGeneration">Code generation</option>
+        <select title="Agenter" class="agent_btn" name="" id="">
+            <option class="agent_options" value="openai">GPT-5.1</option>
+            <option class="agent_options" value="syntaxAgent">Syntax agent </option>
         </select>
     </div>
     <h1>
@@ -166,8 +166,8 @@ onMount(() => {
         </li>
     </ul>
     <div class="input_container">
-        <input type="text" class="user_input" placeholder="Skriv meldingen din her...">
-        <button type="button" class="snd_btn" >sendt inn</button>
+        <input type="text" class="user_input" placeholder="Skriv meldingen din her..." >
+        <button title="Send inn" class="snd_btn" type="button">↑</button>
 
     </div>
 </main>
@@ -399,14 +399,15 @@ h1 {
         flex: 1;
         padding: 12px 16px;
         font-size: 16px;
-        border: 2px solid #323232;
         border-radius: 8px;
-        background-color: #484848;
+        border: 2px solid #555;
+        background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 50%, #3a3a3a 100%);
         color: white;
+        border: 2px solid #555;
         transition: border-color 0.3s ease;
         box-shadow:
-        0 2px 4px rgba(44, 44, 44, 0.25),
-        0 4px 10px rgba(44, 44, 44, 0.35);
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
         
     }
@@ -420,23 +421,25 @@ h1 {
     }
     
     .snd_btn {
-        padding: 12px 24px;
-        font-size: 16px;
-        background-color: #3d3d3d;
-        color: white;
-        border: none;
+        width: 80px;
         border-radius: 8px;
-        border: 2px solid #323232;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        border: 2px solid #555;
+        background: linear-gradient(135deg, #484848 0%, #3a3a3a 100%);
+        color: #e8e8e8;
+        font-size: 20px;
         font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        appearance: none; /* Fjerner standard browser-styling */
         box-shadow:
-        0 2px 4px rgba(44, 44, 44, 0.25),
-        0 4px 10px rgba(44, 44, 44, 0.35);
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
     }
     
     .snd_btn:hover {
-        background-color: #6b6a6a;
+        background: linear-gradient(135deg, #555 0%, #444 100%);
+        border-color: #777;
     }
     
     :global(.chat_incoming) {
@@ -481,11 +484,17 @@ h1 {
         height: 50px;
         width: 50px;
         border-radius: 10px;
-        border: none;
+        border: 2px solid #555;
+        background: linear-gradient(135deg, #484848 0%, #3a3a3a 100%);
+        color: #e8e8e8;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        appearance: none; /* Fjerner standard browser-styling */
         box-shadow:
-        0 2px 4px rgba(44, 44, 44, 0.25),
-        0 4px 10px rgba(44, 44, 44, 0.35);
-        background-color: #707575;
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -494,13 +503,18 @@ h1 {
     }
     
     .rst-btn:hover {
-        background-color: #858585;
+        background: linear-gradient(135deg, #555 0%, #444 100%);
+        border-color: #777;
+        box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
     
     .rst-btn img {
         width: 40px;
         height: 40px;
         object-fit: contain;
+        color: white;
         transition: transform 0.3s ease;
     }
     .rst-btn img:hover {
@@ -514,28 +528,34 @@ h1 {
         transform: translateY(-50%);
     }
     .agent_btn {
-        height: 30px;
-        width: 140px;
-        border-radius: 5px;
-        border: none;
-        box-shadow:
-        0 2px 4px rgba(44, 44, 44, 0.25),
-        0 4px 10px rgba(44, 44, 44, 0.35);
-        background-color: #707575;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 40px;
+        width: 160px;
+        padding: 8px 16px;
+        border-radius: 12px;
+        border: 2px solid #555;
+        background: linear-gradient(135deg, #484848 0%, #3a3a3a 100%);
+        color: #e8e8e8;
+        font-size: 14px;
+        font-weight: 500;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+        outline: none;
+        appearance: none; /* Fjerner standard browser-styling */
+        box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+}
+    
     .agent_btn:hover {
-        background-color: #666;
+        background: linear-gradient(135deg, #555 0%, #444 100%);
+        border-color: #777;
+        box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
-
-    .agent_btn:open {
-        background-color: #333;
-        color: #fff;
-        border-radius: 10px;
-    }
-
+    .agent_options {
+        background-color: #3a3a3a !important;
+         color: white !important;
+         
+     }
 </style>
