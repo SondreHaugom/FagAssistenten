@@ -76,3 +76,12 @@ export async function POST(request) {
         return json({ error: "Failed to generate response" }, { status: 500 });
     }
 }
+
+/*
+const payload = { message: user_message, sessionId };
+fetch('/openai', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+});
+*/

@@ -7,6 +7,24 @@ import { selectedAgent } from '$lib/agentLogic.js';
 let chatbox, userInput, sendButton, resetButton, toggleMenu, menu, wrapper, toggleBtn;
 let isMenuOpen = false;
 
+
+// legger til funksjonalitet for å starte ny samtale
+
+/*
+async function startNewSession() {
+    const res = await fetch('/api/create-session', { method: 'POST' });
+    const data = await res.json();
+    sessionID = data.sessionId;
+}
+
+
+async function resetChat() {
+    chatbox.innerHTML = '';
+    await startNewSession();
+    alert('Ny samtale startet!');
+    
+}
+*/
 // Funksjon for å toggle sidemeny
 function toggleSideMenu() {
     isMenuOpen = !isMenuOpen;
@@ -125,7 +143,8 @@ onMount(() => {
 
     if (resetButton) {
         resetButton.addEventListener('click', () => {
-            chatbox.innerHTML = '';
+           // resetChat();
+
         })
     }
 
@@ -155,7 +174,7 @@ onMount(() => {
             <select title="Agenter" class="agent_btn" name="" id="">
                 <option class="agent_options" value="openai">GPT-5.1</option>
                 <option class="agent_options" value="syntaxAgent">Syntax agent </option>
-                <option class="agent_options" value="webSearch">Web Søk</option>
+                <option class="agent_options" value="webSearch">transkribsjon</option>
             </select>
         </div>
         
@@ -598,6 +617,7 @@ h1 {
     .agent_btn {
         height: 40px;
         width: 160px;
+        margin-bottom: 30px;
         padding: 8px 16px;
         border-radius: 12px;
         border: 2px solid #555;
