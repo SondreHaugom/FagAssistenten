@@ -143,7 +143,9 @@ onMount(() => {
 
     if (resetButton) {
         resetButton.addEventListener('click', () => {
-           // resetChat();
+            chatbox.innerHTML = '';
+            alert('Ny samtale startet!');
+            
 
         })
     }
