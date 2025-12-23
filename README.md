@@ -4,6 +4,7 @@ En moderne chatbot bygget med SvelteKit og OpenAI, med støtte for markdown-form
 
 ![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Mistral AI](https://img.shields.io/badge/Mistral%20AI-4F8CBF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDIgMC04LTMuNTgtOC04czMuNTgtOCA4LTggOCAzLjU4IDggOC0zLjU4IDgtOCA4eiIvPjwvc3ZnPg==&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ---
@@ -31,7 +32,8 @@ En moderne chatbot bygget med SvelteKit og OpenAI, med støtte for markdown-form
 - 🤖 **Multi-agent system** med agent-selektor
   - **GPT-5.1** (OpenAI) - Generell AI-assistent
   - **Syntax Agent** - Spesialist på kodehjelp og syntax-støtte
-  - **Web Søk** - kan søke på nett og hente innformasjon derfra
+  - **Mistral AI** - koblet opp mot Mistral Large 3
+- 🌐 **Web Søk** - kan søke på nett og hente innformasjon derfra
 - 📝 **Markdown-formaterte svar** med overskrifter, avsnitt og lister
 - 💻 **Kodeblokker** med syntax highlighting
 - ⚡ **Streaming av bot-svar** for bedre brukeropplevelse
@@ -53,6 +55,7 @@ FagAssistenten er en avansert chatbot med multi-agent arkitektur bygget med Svel
 
 - **OpenAI Agent (GPT-5.1)**: Generell AI-assistent for diverse spørsmål og oppgaver
 - **Syntax Agent**: Spesialist på kodehjelp, syntax-støtte og programmeringsassistanse
+- **Mistral AI**: Utforsker muligheter med
 - **Utvidbar arkitektur**: Enkelt å legge til nye agenter
 
 ---
@@ -263,4 +266,3 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 ```
-
