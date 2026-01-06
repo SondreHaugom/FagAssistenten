@@ -1,7 +1,6 @@
 // henter importeringer av nødvendige moduler
 import {env} from '$env/dynamic/private';
 import { json } from '@sveltejs/kit';
-import path from "path";
 import OpenAI from "openai";
 
 // Initialiserer OpenAI-klienten med API-nøkkelen fra miljøvariabler
