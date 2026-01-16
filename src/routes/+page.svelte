@@ -89,30 +89,26 @@ const streamMarkdown = (element, markdownText, speed = 5) => {
 
 //  \funksjon for å legge til samtalen i chatboksen
 const createChatBubble = (message, className, isStreaming = false) => {
-    // lager en ny listeelement for meldingen
+    // oppretter et liste element for chatmeldinger
     let chatli = document.createElement('li');
-    // gir en klasse basert på om det er en innkommende eller utgående melding
+    // gir liste elementet riktig klasse basert på om det er en innkommende eller utgående melding
     chatli.classList.add(className);
 
-    // legger til et tomt div for meldingsinnholdet
+    // oppretter innholdet i chatboblen basert på om det er en innkommende eller utgående melding
     let content = '';
-
-    // bestemmer innholdet basert på meldingsklasse
     if (className === 'chat_incoming') {
         content = `<div class="bot_message"></div>`;
     } else {
         content = `<div class="user_message"></div>`;
     }
-
-    // setter innholdet i listeelementet
+    // setter inn innholdet i chatboblen og legger den til i chatboksen
     chatli.innerHTML = content;
-    // legger til listeelementet i chatboksen
+    // legger chatboblen til i chatboksen
     chatbox.appendChild(chatli);
-
-    
-    // Rull chatboksen til bunnen for å vise ny melding
+    // henter meldingsdiven inne i chatboblen
     const messageDiv = chatli.querySelector(className === 'chat_incoming' ? '.bot_message' : '.user_message');
 
+    // setter inn meldingen, enten som streaming eller hele på en gang
     if (isStreaming && className === 'chat_incoming') {
         // Bruk streaming-funksjonen for bot-meldinger
         streamMarkdown(messageDiv, message);
@@ -131,12 +127,11 @@ function sendMessage() {
 
     // Hent valgt agent fra select-elementet
     const selectedAgentType = toggleMenu.value;
-    // Hent respons fra valgt agent
+    
     selectedAgent(user_message, selectedAgentType).then((bot_response) => {
         createChatBubble(bot_response, 'chat_incoming', true);
     });
-    // Tøm input-feltet etter sending
-    userInput.value = '';   
+    userInput.value = '';
 }
 
 
