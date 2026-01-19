@@ -35,7 +35,7 @@ export async function POST(request) {
             input: [
                 {
                     role: "user",
-                    content: message
+                    content: message,
                 }
             ],
             tools: [

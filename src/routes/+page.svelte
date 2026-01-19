@@ -8,23 +8,8 @@ let chatbox, userInput, sendButton, resetButton, toggleMenu, menu, wrapper, togg
 let isMenuOpen = true;
 
 
-// legger til funksjonalitet for å starte ny samtale
-
-/*
-async function startNewSession() {
-    const res = await fetch('/api/create-session', { method: 'POST' });
-    const data = await res.json();
-    sessionID = data.sessionId;
-}
 
 
-async function resetChat() {
-    chatbox.innerHTML = '';
-    await startNewSession();
-    alert('Ny samtale startet!');
-    
-}
-*/
 // Funksjon for å toggle sidemeny
 function toggleSideMenu() {
     isMenuOpen = !isMenuOpen;
