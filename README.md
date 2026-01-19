@@ -231,22 +231,6 @@ function hilsen(navn) {
 
 ---
 
-## � Bidrag
-
-Bidrag er velkomne! Her er hvordan du kan hjelpe:
-
-1. 🍴 **Fork** repositoryet  
-2. 🌿 **Opprett** en feature branch (`git checkout -b feature/AmazingFeature`)
-3. ✏️ **Commit** endringene dine (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 **Push** til branchen (`git push origin feature/AmazingFeature`)
-5. 🔄 **Åpne** en Pull Request
-
-### � Rapporter bugs
-
-Bruk [Issues](../../issues) for å rapportere bugs eller foreslå forbedringer.
-
----
-
 ## 📄 Lisens
 
 Dette prosjektet er lisensiert under MIT-lisensen - se [LICENSE](LICENSE) filen for detaljer.
