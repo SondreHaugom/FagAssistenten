@@ -5,7 +5,7 @@ import { marked } from 'marked';
 import { selectedAgent } from '$lib/agentLogic.js';
 // deklarerer globale variabler
 let chatbox, userInput, sendButton, resetButton, toggleMenu, menu, wrapper, toggleBtn;
-let isMenuOpen = false;
+let isMenuOpen = true;
 
 
 // legger til funksjonalitet for å starte ny samtale
@@ -282,7 +282,7 @@ onMount(() => {
     }
 
     .chatbot_wrapper.shifted {
-        transform: translateX(250px);
+        transform: translateX(150px);
     }
     /* Global markdown-styling */
     :global(.bot_message h1), :global(.user_message h1) {
@@ -466,6 +466,7 @@ h1 {
         color: white;
         list-style: none;
         padding: 20px;
+
         
     }
     /* Webkit (Chrome, Edge, Safari): */
