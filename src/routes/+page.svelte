@@ -229,8 +229,8 @@ onMount(() => {
         left: 0;
         width: 220px;
         height: 100vh;
-        border-radius: 10px;
-        border-right: 2px solid #444;
+        border-radius: 4px;
+        border-right: 1px solid #444;
         background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
         color: #fff;
         padding: 2rem 1rem 1rem 1rem;
@@ -617,7 +617,7 @@ h1 {
     
     .agenst_container {
         position: absolute;
-        top: 20%;
+        top: 17%;
         transform: translateY(-50%);
     }
     .agent_btn {
@@ -625,7 +625,7 @@ h1 {
         width: 160px;
         margin-bottom: 30px;
         padding: 8px 16px;
-        border-radius: 12px;
+        border-radius: 8px;
         border: 2px solid #555;
         background: linear-gradient(135deg, #484848 0%, #3a3a3a 100%);
         color: #e8e8e8;
