@@ -91,14 +91,14 @@ export async function POST(request) {
                     });
                     response_ID = followUpResponse.id;
                     console.log('Follow-up response:', followUpResponse);
-                    return json({response: followUpResponse.output_text});
-                    
                 }
              }
-              return json({ response: response.output_text });
         }
-    
         
+        //return json({response: followUpResponse.output_text});
+        
+        // Hvis ingen function calls, returner original response
+        return json({ response: response.output_text });
 
      }  catch (error) {
         console.error("Error:", error);
