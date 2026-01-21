@@ -4,6 +4,7 @@ export const selectedAgent = async (user_message, agentType) => {
     let endpoint = '/openai';
     if (agentType === 'mistral') endpoint = '/mistral';
     if (agentType === 'syntaxAgent')  endpoint = '/syntax';
+    if (agentType === 'testAgent')  endpoint = '/testAgent';
     // logger agenten som brukes
     console.log(`Using ${agentType} agent`);
     // sender brukerens melding til det valgte endepunktet
@@ -17,10 +18,12 @@ export const selectedAgent = async (user_message, agentType) => {
     });
     // Henter svaret fra agenten
     const payload = await response.json();
+    console.log('Full payload from server:', payload);
     // trekker ut svaret fra payload
     const raw = payload.response ??
-        // henter verdien fra valgt agent
+        // henter verdien fra valgt agent 
         payload.choices?.[0]?.message?.content ?? '';
+    console.log('Extracted raw value:', raw);
     // returnerer svaret eller en standardmelding hvis svaret er tomt
     return raw || 'Beklager, jeg har ingen svar.';
 };

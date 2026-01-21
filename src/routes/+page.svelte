@@ -166,6 +166,7 @@ onMount(() => {
                 <option class="agent_options" value="openai">GPT-5.1</option>
                 <option class="agent_options" value="syntaxAgent">Syntax agent </option>
                 <option class="agent_options" value="mistral">Mistral</option>
+                <option class="agent_options" value="testAgent">testAgent</option>
             </select>
         </div>
         

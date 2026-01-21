@@ -1,10 +1,16 @@
 # Programming Quotes API API Example
 import requests
+import pprint
 
-url = "https://snl.no/api/v1/search?query=Stavanger&limit=4"
-headers = {
-    "Content-Type": "application/json"
-}
 
-response = requests.get(url)
-data = response.json()
+while True:
+    user_input = input("Press Enter to fetch a random Chuck Norris joke or type 'exit' to quit: ")
+    if user_input.lower() == 'exit':
+        print("Exiting the program.")
+        break
+    if user_input.strip() != '':
+        continue
+    url = "https://api.chucknorris.io/jokes/random"
+    response = requests.get(url)
+    data = response.json()
+    pprint.pprint(data)

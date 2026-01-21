@@ -18,34 +18,6 @@ const client = new OpenAI({
 
 
 
-const tools = [
-    {
-        type: "function",
-        name: "SNL_lookup",
-        description: "Bruk denne funksjonen for å slå opp innformasjon i Store Norske Leksikon.",
-        parameters: {
-            type: "object",
-            properties: {
-                sign: {
-                    type: "string",
-                    description: "Søkeordet eller frasen som skal slås opp i Store Norske Leksikon."
-                },
-            },
-            required: []
-        },  
-    },
-];
-
-
-async function SNL_lookup({sign}) {
-    const apiUrl = `https://snl.no/api/v1/search?query=${sign}&limit=4`;
-    const response = await fetch(apiUrl);
-    return await response.json();
-}
-
-
-
-
 // definerer en response_ID variabel som kan hentes og opdateres underveis for å holde styr på samtalens kontekst
 let response_ID = null;
 
@@ -76,7 +48,6 @@ export async function POST(request) {
                 {
                     type: "web_search"
                 },
-                ...tools  // Legg til din SNL_lookup function
             ],
             previous_response_id: response_ID
         });
@@ -85,38 +56,6 @@ export async function POST(request) {
 
         // Logg hele responsen for feilsøking
         console.log('OpenAI full response:', response);
-
-        // Håndterer tool calls
-        while (response.output.some(item => item.type === 'tool_call')) {
-            const input_list = [];
-
-            for (const item of response.output) {
-                if (item.function?.name === 'SNL_lookup') {
-                    const tool_response = await SNL_lookup(item.function.parameters);
-                } else {
-                    console.error(`Unknown tool: ${item.name}`);
-                }
-
-                input_list.push({
-                    type: 'function_call_output',
-                    tool_call_id: item.id,
-                    content: tool_response
-                    
-                })
-
-                response = await client.responses.create({
-                    model: 'gpt-4.1',
-                    instructions: "Bruk informasjonen fra verktøyene til å svare på brukerens spørsmål.",
-                    input: input_list,
-                    tools: tools
-                })
-                previous_response_id = response.id;
-
-                console.log('Updated response after tool call:', response);
-
-            }
-        }
-
         // Returner kun svaret til frontend
         return json({ response: response.output_text });
     // håndterer eventuelle feil som oppstår under prosessen
